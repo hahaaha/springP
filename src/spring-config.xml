@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="helloWorld" class="HelloWorld">
-        <property name="message" value="Hello world!" />
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="helloWorld" class="com.HelloWorld">
+        <property name="message" ref="Message" />
     </bean>
 
+    <bean id="Message" class="com.Message">
+        <property name="m" value="hhhhhhhh" />
+    </bean>
+    <bean name="c" class="com.Category">
+        <property name="name" value="category1" />
+    </bean>
+
+    <bean name="p" class="com.Product">
+        <property name="name" value="product1" />
+        <property name="category" ref="c" />
+    </bean>
 </beans>
